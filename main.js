@@ -28,16 +28,6 @@ btn.addEventListener('click', function(event) {
             let secondNum = Number(entered[1]);
             input.value = (firstNum - (firstNum/100*secondNum));
         }
-        if (input.value.includes('*')) {
-            let firstNum = Number(entered[0]);
-            let secondNum = Number(entered[1]);
-            input.value = (firstNum * (firstNum/100*secondNum));
-        }
-        if (input.value.includes('/')) {
-            let firstNum = Number(entered[0]);
-            let secondNum = Number(entered[1]);
-            input.value = (firstNum / (firstNum/100*secondNum));
-        }
     }
 
     if (event.target.classList.contains('button_equal')) {
