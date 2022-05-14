@@ -9,11 +9,35 @@ btn.addEventListener('click', function(event) {
     }
 
     if (event.target.classList.contains('button_sqrt')) {
-        input.value = Math.sqrt(eval(input.value));
+        if (input.value) {
+            input.value = Math.sqrt(eval(input.value));
+        } else input.value = "";
     }
 
     if (event.target.classList.contains('button_percent')) {
-        input.value = eval(input.value)/100;
+        let entered = input.value.match(/\d+/g);
+        if (input.value.includes('+')) {
+            let firstNum = Number(entered[0]);
+            let secondNum = Number(entered[1]);
+            console.log(firstNum);
+            console.log(secondNum);
+            input.value = (firstNum + (firstNum/100*secondNum));
+        }
+        if (input.value.includes('-')) {
+            let firstNum = Number(entered[0]);
+            let secondNum = Number(entered[1]);
+            input.value = (firstNum - (firstNum/100*secondNum));
+        }
+        if (input.value.includes('*')) {
+            let firstNum = Number(entered[0]);
+            let secondNum = Number(entered[1]);
+            input.value = (firstNum * (firstNum/100*secondNum));
+        }
+        if (input.value.includes('/')) {
+            let firstNum = Number(entered[0]);
+            let secondNum = Number(entered[1]);
+            input.value = (firstNum / (firstNum/100*secondNum));
+        }
     }
 
     if (event.target.classList.contains('button_equal')) {
